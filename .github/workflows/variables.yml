@@ -1,7 +1,6 @@
 name: Workflow Demo
 
 on: 
-  push
 
 #env:
 #  ACCESS_ID: ${{ vars.ACCESS_ID }}
@@ -11,5 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: install ansible
+      run: apt-get install ansible
+    - name: show modules
+      run: ansible-doc -l
     - name: Echo ACCESS_ID
       run: echo ${{ vars.ACCESS_ID }}
