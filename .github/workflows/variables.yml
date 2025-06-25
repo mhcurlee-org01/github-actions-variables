@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: setup pyenv
+      run: python -m venv pyenv
     - name: install ansible
-      run: sudo apt-get install ansible
-    - name: show modules
-      run: ansible-doc -l
-    - name: Echo ACCESS_ID
-      run: echo ${{ vars.ACCESS_ID }}
+      run: |
+        source pyenv/bin/activate
+        pip install ansible
