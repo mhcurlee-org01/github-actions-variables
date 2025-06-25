@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: install ansible
-      run: apt-get install ansible
+      run: sudo apt-get install ansible
     - name: show modules
       run: ansible-doc -l
     - name: Echo ACCESS_ID
