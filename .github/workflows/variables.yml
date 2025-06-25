@@ -16,3 +16,5 @@ jobs:
       run: |
         source pyenv/bin/activate
         pip install ansible
+    - name: test ansible
+      run: ansible-doc -l
