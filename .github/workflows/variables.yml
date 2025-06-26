@@ -5,9 +5,8 @@ on: push
 
 
 jobs:
-  build:
+  cache:
     runs-on: ubuntu-latest
-
     steps:
     - name: setup pyenv
       run: python -m venv pyenv
@@ -15,5 +14,29 @@ jobs:
       run: |
         source pyenv/bin/activate
         pip install ansible==11.7.0
+    - name: cache deps
+      uses: actions/cache@v4
+      with:
+        key: ansible-cache
+        path: pyenv
+
+
+
+
+  test_ansible:
+    runs-on: ubuntu-latest
+    steps:
+    - name: cache deps
+      uses: actions/cache@v4
+      with:
+        key: ansible-cache
+        path: pyenv
+    - name: setup pyenv
+      run: python -m venv pyenv
+    - name: install ansible
+      run: |
+        source pyenv/bin/activate
+        pip install ansible==11.7.0
     - name: test ansible
-      run: ansible-playbook -h
+      run: ansible-playbook -v
+
