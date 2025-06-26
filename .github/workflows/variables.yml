@@ -39,5 +39,5 @@ jobs:
         source pyenv/bin/activate
         pip install ansible==11.7.0
     - name: test ansible
-      run: ansible-playbook -v
+      run: ansible-playbook --version
 
