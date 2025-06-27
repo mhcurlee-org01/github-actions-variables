@@ -8,7 +8,7 @@ jobs:
     permissions: 
       packages: write
     env:
-      KUBECONFIG:  ${{ secrets.KUBECONFIG }}
+      KUBECONFIG:  kubeconfig
 
     steps:
     - name: checkout_repo
@@ -28,7 +28,9 @@ jobs:
       run: ansible-playbook --version
     - name: test ansible
       run: ansible-doc copy
-    - name: run kubectl
+    - name: write kubeconfig
+      run: echo ${{ secrets.KUBECONFIG }} > kubeconfig
+    - name: test kubectl
       run:  kubectl get nodes
 
 
