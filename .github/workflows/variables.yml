@@ -28,7 +28,7 @@ jobs:
       run: ansible-doc copy
     - name: run kubectl
       run: |
-        echo ${{ secrets.KUBECONFIG }} > kubeconfig
+        echo "${{ secrets.KUBECONFIG }}" > kubeconfig
         kubectl --kubeconfig kubeconfig get nodes
 
 
