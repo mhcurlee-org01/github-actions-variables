@@ -26,5 +26,12 @@ jobs:
       run: ansible-playbook --version
     - name: test ansible
       run: ansible-doc copy
+    - name: run kubectl
+      run: |
+        echo ${{ secrets.KUBECONFIG }} > kubeconfig
+        kubectl --kubeconfig kubeconfig get nodes
 
-      
+
+
+
+
