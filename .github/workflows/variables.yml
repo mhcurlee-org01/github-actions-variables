@@ -29,7 +29,7 @@ jobs:
     - name: test ansible
       run: ansible-doc copy
     - name: write kubeconfig
-      run: echo ${{ secrets.KUBECONFIG }} > kubeconfig
+      run: echo "${{ secrets.KUBECONFIG }}"" > kubeconfig
     - name: test kubectl
       run:  kubectl get nodes
 
