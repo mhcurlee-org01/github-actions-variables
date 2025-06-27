@@ -7,8 +7,8 @@ jobs:
     runs-on: self-hosted
     permissions: 
       packages: write
-   env:
-     KUBECONFIG: " ${{ secrets.KUBECONFIG }} "
+    env:
+      KUBECONFIG:  ${{ secrets.KUBECONFIG }}
 
     steps:
     - name: checkout_repo
