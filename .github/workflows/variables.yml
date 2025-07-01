@@ -32,7 +32,7 @@ jobs:
       run: echo "${{ secrets.KUBECONFIG }}" > kubeconfig
     - name: test kubectl
       run:  kubectl get nodes
-
+  
 
 
 
