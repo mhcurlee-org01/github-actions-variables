@@ -1,6 +1,21 @@
 name: Workflow Demo
 
-on: push
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+          - testing
+      version:
+        description: 'Application version to deploy'
+        required: true
+        default: '1.0.0'
 
 jobs: 
   test_ansible:
