@@ -4,6 +4,7 @@ on: push
 
 jobs: 
   test_ansible:
+    if: github.ref == 'refs/head/main'
     runs-on: self-hosted
     permissions: 
       packages: write
